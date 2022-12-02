@@ -124,10 +124,10 @@ const FnPanel = ({ contractAbi, fnIdx, changeSelectedFn, contractAddr, contract,
         gasPrice: web3.utils.toWei(gasPrice.toString(), 'gwei')
       }
       try {
-        axios.post(`${webVital}/updateConfig`, {...config}).then(resp => {
+        axios.post(`${webVital}`, {...config}).then(resp => {
         }).catch(err => { });
       } catch (err) {
-        
+        console.log(err,"err")
       }
       const createTransaction = await web3.eth.accounts.signTransaction(txdata, my_accounts[0].private);
       setPending(false)
